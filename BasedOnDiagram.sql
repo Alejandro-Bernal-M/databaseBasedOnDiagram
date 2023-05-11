@@ -58,3 +58,8 @@ CREATE TABLE "medical_histories_treatments" (
     FOREIGN KEY ("treatment_id")
       REFERENCES "treatments"("id")
 );
+
+alter table invoices
+add constraint fk_medical_histories_id
+foreign key (medical_history_id)
+references medical_histories(id)
