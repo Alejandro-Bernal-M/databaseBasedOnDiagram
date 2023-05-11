@@ -62,4 +62,11 @@ CREATE TABLE "medical_histories_treatments" (
 alter table invoices
 add constraint fk_medical_histories_id
 foreign key (medical_history_id)
-references medical_histories(id)
+references medical_histories(id);
+
+CREATE INDEX ON medical_histories (patient_id);
+CREATE INDEX ON invoices (medical_history_id);
+CREATE INDEX ON invoice_items (invoice_id);
+CREATE INDEX ON invoice_items (treatment_id);
+CREATE INDEX ON medical_histories_treatments (medical_histories_id);
+CREATE INDEX ON medical_histories_treatments (treatment_id);
